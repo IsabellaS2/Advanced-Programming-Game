@@ -1,3 +1,62 @@
+/*Styling for the main game board div*/
+#game-board {
+  background-color: #fbeaeb;
+  position: absolute;
+  margin: auto;
+  inset: 0;
+  border: 0.1vmin solid black;
+  height: 85vmin;
+  width: 85vmin;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/*Styling for each individual box*/
+.box {
+  flex: 1 0 8vmin; /* Adjusted width for each box */
+  border: 0.1vmin solid black;
+  text-align: center;
+  color: #8d46b0;
+  line-height: 8vmin;
+  font-size: 2vmin;
+  box-sizing: border-box;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+  .box {
+    flex: 1 0 5vmin; /* Adjusted width for smaller screens */
+    line-height: 5vmin;
+    font-size: 1.5vmin;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #game-board {
+    height: 60vmin;
+    width: 60vmin;
+  }
+
+  .box {
+    flex: 1 0 4vmin;
+    line-height: 4vmin;
+    font-size: 1.2vmin;
+  }
+}
+
+/*Styling for the header*/
+.header {
+  color: #8d46b0;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*Styling for the background/body*/
 body {
-   background-color: pink;
+  background-color: #fcf5eb;
 }
