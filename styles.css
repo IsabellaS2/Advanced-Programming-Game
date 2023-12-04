@@ -14,11 +14,16 @@ body {
   font-family: "Bubbler One", sans-serif;
 }
 
+/* Styling for the paragraph text*/
+p {
+  text-align: center;
+}
+
 /* Styling for the main container */
 .container {
   display: flex;
   justify-content: space-between;
-  margin: 20px; /* Adjust margin as needed */
+  margin: 20px;
 }
 
 /* Styling for the game board container */
@@ -31,7 +36,7 @@ body {
 #game-board {
   font-family: "Bubbler One", sans-serif;
   background-color: #fbeaeb;
-  position: relative; /* Change position to relative */
+  position: relative;
   margin: auto;
   inset: 0;
   border: 0.1vmin solid black;
@@ -44,6 +49,7 @@ body {
 
 /* Styling for each individual box */
 .box {
+position: relative;
   flex: 1 0 8vmin;
   border: 0.1vmin solid black;
   text-align: center;
@@ -53,16 +59,37 @@ body {
   box-sizing: border-box;
 }
 
+
+/* Styling for the cat characters */
+img {
+   height: 6vmin;
+   width: 6vmin;
+}
+
+.players {
+   position: absolute;
+   opacity: 0.8;
+   transition-duration: 0.4s;
+   transition-property: margin;
+}
+
+#black-cat {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Styling for the Dice Roll and Player Name Box */
 /* Styling for the player info */
 #player-info {
-  position: relative; /* Change position to relative */
-
+  position: relative;
   border: 1px solid black;
   padding: 10px;
   flex: 1;
   max-width: 300px;
-  margin-left: 20px; /* Add margin to separate from game board */
-  max-height: 35vmin; /* Set a maximum height as needed */
+  margin-left: 20px;
+  margin-right: 10px;
+  max-height: 35vmin;
 }
 
 /* Styling for the dice roll container */
@@ -86,9 +113,10 @@ body {
 
 #dice-roll-result {
   font-size: 30px;
-  margin-bottom: 10px; /* Add margin-bottom to create space and push the result to a new line */
+  margin-bottom: 10px;
 }
 
+/*MEDIA QUERIES*/
 /* Media query for smaller screens */
 @media screen and (max-width: 600px) {
   .container {
@@ -96,7 +124,7 @@ body {
   }
 
   #player-info {
-    margin: 20px 0; /* Add margin to separate from game board */
+    margin: 20px;
   }
 
   .box {
@@ -117,6 +145,20 @@ body {
   }
 }
 
-p {
-  text-align: center;
+/* Media query for smaller screens */
+/* This ensures that when the screen gets smaller, the player-info box goes under the game board and doesn't get squashed */
+@media screen and (max-width: 850px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #player-info {
+    margin: 20px;
+    max-width: none;
+  }
+
+  #game-board-container {
+    margin-top: 20px;
+  }
 }
