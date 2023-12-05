@@ -2,7 +2,7 @@ class GameBoard {
   constructor(container, numberOfDivs, resultText) {
     this.container = container;
     this.numberOfDivs = numberOfDivs;
-    this.resultText = resultText;
+    this.resultText = $("#" + resultText.attr("id"));
     this.cat = new Cat(this.container, this.numberOfDivs); // Create an instance of Cat
     this.diceRoller = new DiceRoller(this.resultText, this.catMove.bind(this)); // Pass the catMove method
   }
@@ -13,13 +13,14 @@ class GameBoard {
 
 class DiceRoller {
   constructor(resultText, onRollCallback) {
-    this.resultText = resultText;
+    this.resultText = $("#" + resultText.attr("id"));
     this.button = $("#roll-dice-btn");
     this.diceResult = 0;
     this.onRollCallback = onRollCallback;
-
+  
     this.button.on("click", () => this.roll());
   }
+  
 
   roll() {
     this.diceResult = this.generateRandomNumber();
@@ -46,10 +47,15 @@ class Cat {
   }
 
   createCat() {
+    const catImage = $("<img>", {
+      src: "./assets/cat-images/black-cat.png", // Adjust the path to your cat image
+      alt: "Cat Image"
+    });
+
     this.catDiv = $("<div>", {
       id: "black-cat",
       class: "players",
-    });
+    }).append(catImage);
 
     this.container.append(this.catDiv);
   }
@@ -79,6 +85,9 @@ class Cat {
     ); // Adjust the animation duration as needed
   }
 }
+
+
+
 
 $(document).ready(function () {
   const gameBoard = new GameBoard(
