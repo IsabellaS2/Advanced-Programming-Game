@@ -5,46 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="menu.css" />
     <title>Main Menu</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="menu.js" charset="utf-8"></script>
   </head>
   <body>
     <h1>Main Menu</h1>
-    <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
-      <ul class="dropdown-menu d-block position-static mx-0 shadow w-220px" data-bs-theme="light">
+    <div
+      class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center"
+    >
+      <ul
+        class="dropdown-menu d-block position-static mx-0 shadow w-220px"
+        data-bs-theme="light"
+      >
         <li>
-          <a class="dropdown-item d-flex gap-2 align-items-center" href="index.html">
-            <svg class="bi" width="16" height="16"><use xlink:href="index.html"></use></svg>
-            One Player 
+          <a
+            id="onePlayerBtn"
+            class="dropdown-item d-flex gap-2 align-items-center"
+            href="index.html"
+          >
+            <svg class="bi" width="16" height="16">
+              <use xlink:href="index.html"></use>
+            </svg>
+            One Player
           </a>
         </li>
         <li>
-          <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-            <svg class="bi" width="16" height="16"><use xlink:href="#image-fill"></use></svg>
+          <a
+            id="omputerPlayBtn"
+            class="dropdown-item d-flex gap-2 align-items-center"
+            href="#"
+          >
+            <svg class="bi" width="16" height="16">
+              <use xlink:href="#image-fill"></use>
+            </svg>
             Computer Plays
           </a>
         </li>
         <li>
-          <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-            <svg class="bi" width="16" height="16"><use xlink:href="#film"></use></svg>
+          <a
+            id="playerVsPlayerBtn"
+            class="dropdown-item d-flex gap-2 align-items-center"
+            href="#"
+          >
+            <svg class="bi" width="16" height="16">
+              <use xlink:href="#film"></use>
+            </svg>
             Player VS Player
           </a>
         </li>
         <li>
-          <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-            <svg class="bi" width="16" height="16"><use xlink:href="#music-note-beamed"></use></svg>
+          <a
+            id="playerVsComputerBtn"
+            class="dropdown-item d-flex gap-2 align-items-center"
+            href="#"
+          >
+            <svg class="bi" width="16" height="16">
+              <use xlink:href="#music-note-beamed"></use>
+            </svg>
             Player VS Computer
           </a>
         </li>
         <li>
-          <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
-            <svg class="bi" width="16" height="16"><use xlink:href="#joystick"></use></svg>
+          <a
+            id="computerVsComputerBtn"
+            class="dropdown-item d-flex gap-2 align-items-center"
+            href="#"
+          >
+            <svg class="bi" width="16" height="16">
+              <use xlink:href="#joystick"></use>
+            </svg>
             Computer VS Computer
           </a>
         </li>
       </ul>
-      
     </div>
     <p>
       This file will hold the menu screen where players can select how they want
@@ -52,5 +91,3 @@
     </p>
   </body>
 </html>
-
-
