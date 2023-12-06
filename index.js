@@ -21,7 +21,7 @@ class DiceRoller {
 
   displayResult() {
     this.resultText.html("Dice Roll Result: <br>" + this.diceResult);
-    console.log("Dice Roll Result: " + this.diceResult)
+    console.log("Dice Roll Result: " + this.diceResult);
   }
 }
 
@@ -42,9 +42,20 @@ class Cat {
       class: "players",
     });
 
-    this.catDiv.html(catImage); // Set the image as HTML content
+    this.catDiv.html(catImage);
 
     this.container.append(this.catDiv);
+  }
+
+  setPosition(boxNumber) {
+    this.catDiv.find('img').attr('alt', boxNumber);
+
+    const position = $(`#box-${boxNumber}`).position();
+    this.catDiv.css({
+      position: 'absolute',
+      top: position.top + 'px',
+      left: position.left + 'px',
+    });
   }
 
   move(steps) {
@@ -55,28 +66,17 @@ class Cat {
       newPosition = this.numberOfDivs;
     }
 
-    let newBoxNumber = newPosition;
-
-    this.catDiv.find('img').attr('alt', newBoxNumber); // Update the alt attribute
-
-    this.catDiv.animate(
-      {
-        top: $(`#box-${newBoxNumber}`).position().top + "px",
-        left: $(`#box-${newBoxNumber}`).position().left + "px",
-      },
-      500
-    );
+    this.setPosition(newPosition);
   }
 }
-
 
 class GameBoard {
   constructor(container, numberOfDivs, resultText) {
     this.container = container;
     this.numberOfDivs = numberOfDivs;
     this.resultText = $("#" + resultText.attr("id"));
-    this.cats = []; // Store all cats in an array
-    this.currentCatIndex = 0; // Index of the cat that will move next
+    this.cats = [];
+    this.currentCatIndex = 0;
     this.diceRoller = new DiceRoller(this.resultText, this.catMove.bind(this));
   }
 
@@ -89,7 +89,6 @@ class GameBoard {
     const currentCat = this.cats[this.currentCatIndex];
     currentCat.move(steps);
 
-    // Switch to the next cat for the next turn
     this.currentCatIndex = (this.currentCatIndex + 1) % this.cats.length;
   }
 }
@@ -101,10 +100,7 @@ $(document).ready(function () {
     $("#dice-roll-result")
   );
 
-  // Add black cat
   gameBoard.addCat("black");
-
-  // Add orange cat 
-  // gameBoard.addCat("orange");
 });
+
 

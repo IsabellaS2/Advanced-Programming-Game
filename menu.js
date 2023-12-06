@@ -1,4 +1,11 @@
-// $(document).ready(function () {
-//   const playerName = prompt("Enter your name:");
-//   localStorage.setItem("playerName", playerName);
-// });
+// menu.js
+$(document).ready(function () {
+   $("#onePlayerBtn").click(function () {
+     window.location.href = "index.html";
+   });
+ 
+   $("#playerVsPlayerBtn").click(function () {
+     window.location.href = "index.html?mode=playerVsPlayer";
+   });
+ });
+ 
