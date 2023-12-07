@@ -5,16 +5,23 @@ $(document).ready(function () {
   const gameBoard = new GameBoard(gameContainer, 100, diceRollResult);
 
   const urlParams = new URLSearchParams(window.location.search);
-  const mode = urlParams.get("mode");
+  const gameMode = urlParams.get("mode") || "singlePlayer"; // Provide a default value
 
-  if (mode === "playerVsPlayer") {
-    gameBoard.addCat("black");
-    gameBoard.addCat("orange");
-  } else {
-    gameBoard.addCat("black");
-  }
+  addCatsBasedOnGameMode(gameBoard, gameMode);
 
   $("#onePlayerBtn, #playerVsPlayerBtn").click(function () {
-    gameBoard.diceRoller.roll();
+    gameBoard.diceRoller.performRoll();
   });
+
+  // Function to add cats based on the game mode
+  function addCatsBasedOnGameMode(board, mode) {
+    if (gameMode === "playerVsPlayer") {
+      board.addCatToBoard("blue");
+      board.addCatToBoard("grey");
+    } else {
+      board.addCatToBoard("purple");
+    }
+  }
 });
+
+
