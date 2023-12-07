@@ -1,52 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="menu.css" />
-    <title>Main Menu</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <!-- SCRIPT FILES -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="menu.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <h1>Main Menu</h1>
-    <div
-      class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center"
-    >
-      <ul
-        class="dropdown-menu d-block position-static mx-0 shadow w-220px"
-        data-bs-theme="light"
-      >
-        <li>
-          <a
-            id="onePlayerBtn"
-            class="dropdown-item d-flex gap-2 align-items-center"
-            href="index.html"
-          >
-            One Player
-          </a>
-        </li>
-        <li>
-          <a
-            id="playerVsPlayerBtn"
-            class="dropdown-item d-flex gap-2 align-items-center"
-            href="index.html?mode=playerVsPlayer"
-          >
-            Player VS Player
-          </a>
-        </li>
-      </ul>
-    </div>
-    <p>
-      This file will hold the menu screen where players can select how they want
-      to play the game, such as one player or player vs player.
-    </p>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="menu.css" />
+        <title>Main Menu</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+        <!-- SCRIPT FILES -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="menu.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <h1>Main Menu</h1>
+        <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+            <ul class="dropdown-menu d-block position-static mx-0 shadow w-220px" data-bs-theme="light">
+                <li>
+                    <a id="onePlayerBtn" class="dropdown-item d-flex gap-2 align-items-center" href="index.html?mode=onePlayer">
+                        One Player
+                    </a>
+                </li>
+                <li>
+                    <a id="playerVsPlayerBtn" class="dropdown-item d-flex gap-2 align-items-center" href="index.html?mode=playerVsPlayer">
+                        Player VS Player
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <p>
+            This file will hold the menu screen where players can select how they want to play the game, such as one player or player vs player.
+        </p>
+    </body>
 </html>
