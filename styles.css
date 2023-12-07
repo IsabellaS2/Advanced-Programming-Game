@@ -30,6 +30,7 @@ p {
 #game-board-container {
   flex: 2;
   max-width: 800px;
+  margin-bottom: 20px;
 }
 
 /* Styling for the main game board div */
