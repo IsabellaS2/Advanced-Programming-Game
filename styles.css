@@ -117,13 +117,13 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1; /* Adjust this value based on your needs */
+  z-index: 1; /
 }
 
 
 .players {
   position: absolute;
-  z-index: 2; /* Make sure this value is higher than the z-index of the stream image */
+  z-index: 10; 
 }
 
 /*MEDIA QUERIES*/

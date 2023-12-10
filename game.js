@@ -83,47 +83,62 @@ class GameBoard {
     this.diceRoller = diceRoller;
 
     // Adding stream images
-    this.addImageToBoard("./assets/streams/stream-image1.png", 45, {
-      topOffset: 80,
-      leftOffset: 70,
-      height: 160,
-      width: 150,
-    });
-
-    this.addImageToBoard("./assets/streams/stream-image2.png", 5, {
-      topOffset: 40,
-      leftOffset: 65,
-      height: 160,
-      width: 150,
-    });
-
-    this.addImageToBoard("./assets/streams/stream-image3.png", 68, {
-      topOffset: 65,
-      leftOffset: 70,
-      height: 160,
-      width: 150,
-    });
-
-    this.addImageToBoard("./assets/streams/stream-image4.png", 29, {
-      topOffset: 0,
-      leftOffset: 40,
-      height: 180,
-      width: 200,
-    });
-
-    this.addImageToBoard("./assets/streams/stream-image5.png", 34, {
-      topOffset: 30,
-      leftOffset: 70,
-      height: 180,
-      width: 200,
-    });
+    this.addImages([
+      {
+        filename: "./assets/streams/stream-image1.png",
+        box: 45,
+        options: { topOffset: 55, leftOffset: 60, height: 160, width: 140 },
+      },
+      {
+        filename: "./assets/streams/stream-image2.png",
+        box: 5,
+        options: { topOffset: 30, leftOffset: 55, height: 130, width: 110 },
+      },
+      {
+        filename: "./assets/streams/stream-image3.png",
+        box: 68,
+        options: { topOffset: 55, leftOffset: 60, height: 120, width: 100 },
+      },
+      {
+        filename: "./assets/streams/stream-image4.png",
+        box: 29,
+        options: { topOffset: 0, leftOffset: 30, height: 150, width: 150 },
+      },
+      {
+        filename: "./assets/streams/stream-image5.png",
+        box: 34,
+        options: { topOffset: 25, leftOffset: 50, height: 160, width: 200 },
+      },
+    ]);
 
     // Adding string images
-    this.addImageToBoard("./assets/strings/string-image1.png", 50, {
-      topOffset: 30,
-      leftOffset: 100,
-      height: 180,
-      width: 200,
+    this.addImages([
+      {
+        filename: "./assets/strings/string-image1.png",
+        box: 50,
+        options: { topOffset: 23, leftOffset: 50, height: 150, width: 200 },
+      },
+      {
+        filename: "./assets/strings/string-image2.png",
+        box: 38,
+        options: { topOffset: 20, leftOffset: 50, height: 150, width: 150 },
+      },
+      {
+        filename: "./assets/strings/string-image3.png",
+        box: 70,
+        options: { topOffset: 60, leftOffset: 25, height: 100, width: 130 },
+      },
+      {
+        filename: "./assets/strings/string-image3.png",
+        box: 63,
+        options: { topOffset: 50, leftOffset: -5, height: 90, width: 90 },
+      },
+    ]);
+  }
+
+  addImages(images) {
+    images.forEach(({ filename, box, options }) => {
+      this.addImageToBoard(filename, box, options);
     });
   }
 
@@ -139,7 +154,7 @@ class GameBoard {
     const image = $("<img>", {
       src: imageFilename,
       alt: "Image",
-      class: "custom-image", // Add a class for styling
+      class: "custom-image",
     });
 
     // Set the position based on the desired box position
