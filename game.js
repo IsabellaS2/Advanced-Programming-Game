@@ -50,7 +50,6 @@ class Cat {
     this.container.append(this.catDiv);
   }
 
-  //distanceToMoveCat
   moveToNewPosition(distanceToMoveCat) {
     const currentPosition = parseInt(this.catDiv.attr("id").split("-")[1]) || 1;
     let newPosition = currentPosition + distanceToMoveCat;
@@ -63,6 +62,45 @@ class Cat {
 
     // Update the cat div content
     this.catDiv.attr("id", `box-${newPosition}`);
+
+    // Check for special box conditions
+    this.handleSpecialBoxes(newPosition);
+  }
+
+  handleSpecialBoxes(box, options) {
+    // Define special box conditions
+    const specialBoxes = {
+      //Strings
+      40: { moveTo: 59, message: "Awesome, you moved up by 19" },
+      49: { moveTo: 68, message: "Awesome, you moved up by 19" },
+      79: { moveTo: 83, message: "Awesome, you moved up by 4" },
+      72: { moveTo: 90, message: "Awesome, you moved up by 18" },
+      //Streams
+      23: { moveTo: 4, message: "Sorry, you moved down by 19" },
+      34: { moveTo: 29, message: "Sorry, you moved down by 5" },
+      56: { moveTo: 35, message: "Sorry, you moved down by 21" },
+      64: { moveTo: 58, message: "Sorry, you moved down by 6" },
+      87: { moveTo: 75, message: "Sorry, you moved down by 12" },
+    };
+
+    // Check if the box is a special box
+    if (specialBoxes[box]) {
+      const { moveTo, message } = specialBoxes[box];
+
+      // Move to the specified box
+      this.moveToBox(moveTo, options);
+
+      // Show alert message
+      alert(message);
+    }
+  }
+
+  moveToBox(boxNumber) {
+    // Move to the specified box
+    this.catDiv.appendTo($(`#box-${boxNumber}`));
+
+    // Update the cat div content
+    this.catDiv.attr("id", `box-${boxNumber}`);
   }
 }
 
@@ -134,6 +172,20 @@ class GameBoard {
         options: { topOffset: 50, leftOffset: -5, height: 90, width: 90 },
       },
     ]);
+
+    // Update snake positions on window resize
+    $(window).on("resize", this.updateSnakePositions.bind(this));
+  }
+
+  updateSnakePositions() {
+    // Iterate over stored snake positions and update them
+    this.snakePositions.forEach(({ snake, box }) => {
+      const boxOffset = $(`#box-${box}`).offset();
+      snake.css({
+        top: boxOffset.top - options.topOffset,
+        left: boxOffset.left - options.leftOffset,
+      });
+    });
   }
 
   addImages(images) {
