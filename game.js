@@ -65,6 +65,15 @@ class Cat {
 
     // Check for special box conditions
     this.handleSpecialBoxes(newPosition);
+
+    if (newPosition === 100) {
+      // Delay for 1000 milliseconds (1 second) before showing the alert
+      setTimeout(() => {
+        alert("Well Done! You have won the game.");
+        // Redirect to the menu page after the alert is closed
+        window.location.href = "menu.html"; // Replace "menu.html" with your actual menu page
+      }, 100);
+    }
   }
 
   handleSpecialBoxes(box, options) {
@@ -87,11 +96,14 @@ class Cat {
     if (specialBoxes[box]) {
       const { moveTo, message } = specialBoxes[box];
 
-      // Move to the specified box
-      this.moveToBox(moveTo, options);
+      // Delay for 500 milliseconds (0.2 seconds) before moving and showing the alert
+      setTimeout(() => {
+        // Move to the specified box
+        this.moveToBox(moveTo, options);
 
-      // Show alert message
-      alert(message);
+        // Show alert message
+        alert(message);
+      }, 150);
     }
   }
 
