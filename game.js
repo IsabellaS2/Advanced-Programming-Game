@@ -9,14 +9,14 @@ class DiceRoller {
   }
 
   performRoll() {
-    const diceResult = this.generateRandomNumber();
+    const diceResult = this._generateRandomNumber();
     this.displayResult(diceResult);
     if (typeof this.onRollCallback === "function") {
       this.onRollCallback(diceResult);
     }
   }
 
-  generateRandomNumber() {
+  _generateRandomNumber() {
     return Math.floor(Math.random() * 6) + 1;
   }
 
@@ -57,62 +57,65 @@ class Cat {
       newPosition = this.numberOfDivs;
     }
 
-    // Set the cat div position to the center of the new box
-    this.catDiv.appendTo($(`#box-${newPosition}`));
+    this.moveCatToPosition(newPosition);
 
-    // Update the cat div content
-    this.catDiv.attr("id", `box-${newPosition}`);
-
-    // Check for special box conditions
     this.handleSpecialBoxes(newPosition);
 
     if (newPosition === 100) {
-      // Delay for 1000 milliseconds (1 second) before showing the alert
-      setTimeout(() => {
-        alert("Well Done! You have won the game.");
-        // Redirect to the menu page after the alert is closed
-        window.location.href = "menu.html"; // Replace "menu.html" with your actual menu page
-      }, 100);
+      this.handleGameWin();
     }
   }
 
-  handleSpecialBoxes(box, options) {
-    // Define special box conditions
-    const specialBoxes = {
-      //Strings
-      40: { moveTo: 59, message: "Awesome, you moved up by 19" },
-      49: { moveTo: 68, message: "Awesome, you moved up by 19" },
-      79: { moveTo: 83, message: "Awesome, you moved up by 4" },
-      72: { moveTo: 90, message: "Awesome, you moved up by 18" },
-      //Streams
-      23: { moveTo: 4, message: "Sorry, you moved down by 19" },
-      34: { moveTo: 29, message: "Sorry, you moved down by 5" },
-      56: { moveTo: 35, message: "Sorry, you moved down by 21" },
-      64: { moveTo: 58, message: "Sorry, you moved down by 6" },
-      87: { moveTo: 75, message: "Sorry, you moved down by 12" },
+  moveCatToPosition(newPosition) {
+    this.catDiv.appendTo($(`#box-${newPosition}`));
+    this.catDiv.attr("id", `box-${newPosition}`);
+  }
+
+  handleSpecialBoxes(box) {
+    const messages = {
+      awesomeUp: "Awesome, you moved up by",
+      sorryDown: "Sorry, you moved down by",
+      laserMove: "Your cat chased a laser and is moving up by",
+      yarnTangle: "Sorry, your cat got tangled up in a yarn ball! Move back by",
     };
 
-    // Check if the box is a special box
+    const specialBoxes = {
+      // Strings
+      40: { moveTo: 59, steps: 19, type: "awesomeUp" },
+      49: { moveTo: 68, steps: 19, type: "awesomeUp" },
+      79: { moveTo: 83, steps: 4, type: "awesomeUp" },
+      72: { moveTo: 90, steps: 18, type: "awesomeUp" },
+      // Streams
+      23: { moveTo: 4, steps: 19, type: "sorryDown" },
+      34: { moveTo: 29, steps: 5, type: "sorryDown" },
+      56: { moveTo: 35, steps: 21, type: "sorryDown" },
+      64: { moveTo: 58, steps: 6, type: "sorryDown" },
+      87: { moveTo: 75, steps: 12, type: "sorryDown" },
+      // Extra Move
+      25: { moveTo: 30, steps: 5, type: "laserMove" },
+      // Reverse Direction
+      96: { moveTo: 92, steps: 4, type: "yarnTangle" },
+    };
+
     if (specialBoxes[box]) {
-      const { moveTo, message } = specialBoxes[box];
-
-      // Delay for 500 milliseconds (0.2 seconds) before moving and showing the alert
-      setTimeout(() => {
-        // Move to the specified box
-        this.moveToBox(moveTo, options);
-
-        // Show alert message
-        alert(message);
-      }, 150);
+      const { moveTo, steps, type } = specialBoxes[box];
+      const message = `${messages[type]} ${steps}`;
+      this.handleSpecialBoxMove(moveTo, message);
     }
   }
 
-  moveToBox(boxNumber) {
-    // Move to the specified box
-    this.catDiv.appendTo($(`#box-${boxNumber}`));
+  handleSpecialBoxMove(moveTo, message) {
+    setTimeout(() => {
+      this.moveCatToPosition(moveTo);
+      alert(message);
+    }, 150);
+  }
 
-    // Update the cat div content
-    this.catDiv.attr("id", `box-${boxNumber}`);
+  handleGameWin() {
+    setTimeout(() => {
+      alert("Well Done! You have won the game.");
+      window.location.href = "menu.html";
+    }, 800);
   }
 }
 
