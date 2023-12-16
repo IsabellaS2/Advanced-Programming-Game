@@ -15,13 +15,11 @@ $(document).ready(function () {
 
   // Function to add cats based on the game mode
   function addCatsBasedOnGameMode(board, mode) {
-    if (gameMode === "playerVsPlayer") {
-      board.addCatToBoard("blue");
-      board.addCatToBoard("grey");
+    if (mode === "playerVsPlayer") {
+      board.addCatToBoard("blue", 1);
+      board.addCatToBoard("grey", 2);
     } else {
-      board.addCatToBoard("purple");
+      board.addCatToBoard("purple", 1);
     }
   }
 });
-
-
