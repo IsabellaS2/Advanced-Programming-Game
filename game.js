@@ -27,9 +27,10 @@ class DiceRoller {
 }
 
 class Cat {
-  constructor(container, numberOfDivs, catColor) {
+  constructor(container, numberOfDivs, catColor, playerNumber) {
     this.container = container;
     this.numberOfDivs = numberOfDivs;
+    this.playerNumber = playerNumber;
     this.createCat(catColor);
   }
 
@@ -113,7 +114,7 @@ class Cat {
 
   handleGameWin() {
     setTimeout(() => {
-      alert("Well Done! You have won the game.");
+      alert(`Player ${this.playerNumber} has won the game!`);
       window.location.href = "menu.html";
     }, 800);
   }
@@ -126,6 +127,7 @@ class GameBoard {
     this.resultText = $("#" + resultText.attr("id"));
     this.cats = [];
     this.currentCatIndex = 0;
+    this.currentPlayer = 1; // Track the current player
 
     // Create the DiceRoller instance and bind the event handler
     const diceRoller = new DiceRoller(
@@ -192,6 +194,39 @@ class GameBoard {
     $(window).on("resize", this.updateSnakePositions.bind(this));
   }
 
+  addCatToBoard(catColor, playerNumber) {
+    const cat = new Cat(
+      this.container,
+      this.numberOfDivs,
+      catColor,
+      playerNumber
+    );
+    this.cats.push(cat);
+  }
+
+  moveCurrentCat(steps) {
+    const currentCat = this.cats[this.currentCatIndex];
+    currentCat.moveToNewPosition(steps);
+
+    // Update the player turn text only in player versus player mode
+    if (this.cats.length > 1) {
+      this.updatePlayerTurnText();
+      this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
+    }
+
+    this.currentCatIndex = (this.currentCatIndex + 1) % this.cats.length;
+  }
+
+  updatePlayerTurnText() {
+    const playerTurnText = $("#player-turn");
+
+    if (this.currentPlayer === 1) {
+      playerTurnText.text("Player 1's Turn");
+    } else {
+      playerTurnText.text("Player 2's Turn");
+    }
+  }
+
   updateSnakePositions() {
     // Iterate over stored snake positions and update them
     this.snakePositions.forEach(({ snake, box }) => {
@@ -241,16 +276,5 @@ class GameBoard {
 
     image.attr("id", uniqueID);
     this.container.append(image);
-  }
-
-  addCatToBoard(catColor) {
-    const cat = new Cat(this.container, this.numberOfDivs, catColor);
-    this.cats.push(cat);
-  }
-
-  moveCurrentCat(steps) {
-    const currentCat = this.cats[this.currentCatIndex];
-    currentCat.moveToNewPosition(steps);
-    this.currentCatIndex = (this.currentCatIndex + 1) % this.cats.length;
   }
 }
