@@ -127,7 +127,7 @@ class GameBoard {
     this.resultText = $("#" + resultText.attr("id"));
     this.cats = [];
     this.currentCatIndex = 0;
-    this.currentPlayer = 1; // Track the current player
+    this.currentPlayer = 1; 
 
     // Create the DiceRoller instance and bind the event handler
     const diceRoller = new DiceRoller(

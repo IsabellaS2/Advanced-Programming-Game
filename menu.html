@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="menu.css" />
-    <title>Main Menu</title>
+    <title>Main Menu for Strings and Streams</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
@@ -15,38 +15,50 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="menu.js" charset="utf-8"></script>
   </head>
-  <body>
-    <h1>Main Menu</h1>
-    <div
-      class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center"
-    >
-      <ul
-        class="dropdown-menu d-block position-static mx-0 shadow w-220px"
-        data-bs-theme="light"
-      >
-        <li>
-          <a
-            id="onePlayerBtn"
-            class="dropdown-item d-flex gap-2 align-items-center"
-            href="index.html?mode=onePlayer"
-          >
-            One Player
-          </a>
-        </li>
-        <li>
-          <a
-            id="playerVsPlayerBtn"
-            class="dropdown-item d-flex gap-2 align-items-center"
-            href="index.html?mode=playerVsPlayer"
-          >
-            Player VS Player
-          </a>
-        </li>
-      </ul>
+  <body  style="background-color: #fcf5eb;"  >
+    <div id="instructionsModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>Snakes and Ladders: Cat Edition</h2>
+        <p>Instructions:</p>
+        <a href="https://learnenglishkids.britishcouncil.org/print-make/crafts/snakes-ladders" target="_blank">Learn more about Snakes and Ladders</a>
+        <p>This game is a play on snakes and ladders but a cat version. Instead of tokens, it would be a cat. Instead of snakes, it would be a water stream because (most) cats hate water and instead of ladders, it would be string because cats love to play with strings</p>
+        <p>Players take turns rolling the die and watching their tokens move forward the number of squares indicated on the screen. If a player lands on the bottom of a string (green), they climb to the top. If a player lands on the head of a stream (blue), they slide down to the bottom of the stream.        </p>
+        <p>In two-player mode, whoever clicks the dice first is player one.         </p>
+        <p>Watch out because there will be random events popping up!</p>
+
+      </div>
     </div>
-    <p>
-      This file will hold the menu screen where players can select how they want
-      to play the game, such as one player or player vs player.
-    </p>
+    <h1 class="header">Main Menu for Strings and Streams</h1>
+    <div class="menu-container">
+      <button class="how-to-play-btn" onclick="openModal()">How to Play</button>
+      <div
+        class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center"
+      >
+        <ul
+          class="dropdown-menu d-block position-static mx-0 shadow w-220px"
+          data-bs-theme="light"
+        >
+          <li>
+            <a
+              id="onePlayerBtn"
+              class="dropdown-item d-flex gap-2 align-items-center"
+              href="index.html?mode=onePlayer"
+            >
+              One Player
+            </a>
+          </li>
+          <li>
+            <a
+              id="playerVsPlayerBtn"
+              class="dropdown-item d-flex gap-2 align-items-center"
+              href="index.html?mode=playerVsPlayer"
+            >
+              Player VS Player
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>
