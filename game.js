@@ -9,6 +9,11 @@ class DiceRoller {
   }
 
   performRoll() {
+    // Check if the Roll Dice button is disabled
+    if ($("#roll-dice-btn").prop("disabled")) {
+      return;
+    }
+
     const diceResult = this._generateRandomNumber();
     this.displayResult(diceResult);
     if (typeof this.onRollCallback === "function") {
@@ -104,12 +109,23 @@ class Cat {
       this.handleSpecialBoxMove(moveTo, message);
     }
   }
-
   handleSpecialBoxMove(moveTo, message) {
+    // Disable the Roll Dice button
+    $("#roll-dice-btn").prop("disabled", true);
+
+    const notification = $("<div>", {
+      class: "notification",
+      text: message,
+    });
+
+    this.container.append(notification);
+
     setTimeout(() => {
+      notification.remove(); // Remove the notification after a delay
       this.moveCatToPosition(moveTo);
-      alert(message);
-    }, 150);
+      // Enable the Roll Dice button after the notification is gone
+      $("#roll-dice-btn").prop("disabled", false);
+    }, 1500);
   }
 
   handleGameWin() {
@@ -127,7 +143,7 @@ class GameBoard {
     this.resultText = $("#" + resultText.attr("id"));
     this.cats = [];
     this.currentCatIndex = 0;
-    this.currentPlayer = 1; 
+    this.currentPlayer = 1;
 
     // Create the DiceRoller instance and bind the event handler
     const diceRoller = new DiceRoller(
@@ -278,3 +294,19 @@ class GameBoard {
     this.container.append(image);
   }
 }
+
+GameBoard.prototype.runComputerPlayer = function () {
+  const computerCat = this.cats[1];
+  const rollDiceAutomatically = () => {
+    const delay = 600;
+
+    setTimeout(() => {
+      const steps = Math.floor(Math.random() * 6) + 1;
+      this.diceRoller.performRoll(steps);
+      if (computerCat.catDiv.attr("id") !== "box-100") {
+        rollDiceAutomatically();
+      }
+    }, delay);
+  };
+  rollDiceAutomatically();
+};

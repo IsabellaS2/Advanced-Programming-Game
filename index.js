@@ -13,13 +13,20 @@ $(document).ready(function () {
     gameBoard.diceRoller.performRoll();
   });
 
+  if (gameMode === "computerVScomputer") {
+    gameBoard.runComputerPlayer();
+  }
+
   // Function to add cats based on the game mode
   function addCatsBasedOnGameMode(board, mode) {
     if (mode === "playerVsPlayer") {
       board.addCatToBoard("blue", 1);
       board.addCatToBoard("grey", 2);
-    } else {
+    } else if (mode === "onePlayer") {
       board.addCatToBoard("purple", 1);
+    } else if (mode === "computerVScomputer") {
+      board.addCatToBoard("orange", 1); // Human player
+      board.addCatToBoard("black", 2); // Computer player
     }
   }
 });
