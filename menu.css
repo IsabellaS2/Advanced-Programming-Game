@@ -13,8 +13,7 @@ p {
   text-align: center;
 }
 
-/* Add this style for the modal */
-/* Add this style for the modal */
+/* Styling for the modal */
 .modal {
   display: none;
   position: fixed;
@@ -36,11 +35,8 @@ p {
   border: 1px solid #ccc;
 }
 
-/* Rest of your existing styles */
-
-
 .modal-content a:hover {
-  text-decoration: underline; /* Add underline on hover, adjust as needed */
+  text-decoration: underline;
 }
 
 .close-btn {
@@ -51,7 +47,7 @@ p {
   cursor: pointer;
 }
 
-/* Add this style for the centered button */
+/* Styling for the centered button */
 .menu-container {
   position: relative;
   text-align: center;

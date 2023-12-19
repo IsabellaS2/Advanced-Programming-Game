@@ -15,18 +15,32 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="menu.js" charset="utf-8"></script>
   </head>
-  <body  style="background-color: #fcf5eb;"  >
+  <body style="background-color: #fcf5eb">
     <div id="instructionsModal" class="modal">
       <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
         <h2>Snakes and Ladders: Cat Edition</h2>
         <p>Instructions:</p>
-        <a href="https://learnenglishkids.britishcouncil.org/print-make/crafts/snakes-ladders" target="_blank">Learn more about Snakes and Ladders</a>
-        <p>This game is a play on snakes and ladders but a cat version. Instead of tokens, it would be a cat. Instead of snakes, it would be a water stream because (most) cats hate water and instead of ladders, it would be string because cats love to play with strings</p>
-        <p>Players take turns rolling the die and watching their tokens move forward the number of squares indicated on the screen. If a player lands on the bottom of a string (green), they climb to the top. If a player lands on the head of a stream (blue), they slide down to the bottom of the stream.        </p>
-        <p>In two-player mode, whoever clicks the dice first is player one.         </p>
+        <a
+          href="https://learnenglishkids.britishcouncil.org/print-make/crafts/snakes-ladders"
+          target="_blank"
+          >Learn more about Snakes and Ladders</a
+        >
+        <p>
+          This game is a play on snakes and ladders but a cat version. Instead
+          of tokens, it's a cat. Instead of snakes,  it's a water
+          stream because (most) cats hate water and instead of ladders, it's
+          a string because cats love to play with strings
+        </p>
+        <p>
+          Players take turns rolling the die and watching their tokens move
+          forward the number of squares indicated on the screen. If a player
+          lands on the bottom of a string (green), they climb to the top. If a
+          player lands on the head of a stream (blue), they slide down to the
+          bottom of the stream.
+        </p>
+        <p>In two-player mode, whoever clicks the dice first is player one.</p>
         <p>Watch out because there will be random events popping up!</p>
-
       </div>
     </div>
     <h1 class="header">Main Menu for Strings and Streams</h1>
@@ -55,6 +69,15 @@
               href="index.html?mode=playerVsPlayer"
             >
               Player VS Player
+            </a>
+          </li>
+          <li>
+            <a
+              id="computerVScomputerBtn"
+              class="dropdown-item d-flex gap-2 align-items-center"
+              href="index.html?mode=computerVScomputer"
+            >
+              Computer VS Computer
             </a>
           </li>
         </ul>
