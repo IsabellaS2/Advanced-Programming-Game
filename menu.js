@@ -1,4 +1,3 @@
-// menu.js
 $(document).ready(function () {
   $("#onePlayerBtn").click(function () {
     window.location.href = "index.html?mode=onePlayer";
@@ -13,8 +12,7 @@ $(document).ready(function () {
   });
 });
 
-//Handle the modal functionality
-
+// Handle the modal functionality
 // Function to open the modal
 function openModal() {
   const modal = document.getElementById("instructionsModal");

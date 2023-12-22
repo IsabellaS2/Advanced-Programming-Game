@@ -1,20 +1,28 @@
 $(document).ready(function () {
+  // Get references to the game container and dice roll result elements
   const gameContainer = $("#game-container");
   const diceRollResult = $("#dice-roll-result");
 
+  // Create a new GameBoard instance with 100 squares and set up dice rolling display
   const gameBoard = new GameBoard(gameContainer, 100, diceRollResult);
 
+  // Retrieve the game mode from the URL parameters, default to "singlePlayer" if not provided
   const urlParams = new URLSearchParams(window.location.search);
-  const gameMode = urlParams.get("mode") || "singlePlayer"; // Provide a default value
+  const gameMode = urlParams.get("mode") || "singlePlayer";
 
-  addCatsBasedOnGameMode(gameBoard, gameMode);
+  setupGame(gameBoard, gameMode);
 
   $("#onePlayerBtn, #playerVsPlayerBtn").click(function () {
     gameBoard.diceRoller.performRoll();
   });
 
-  if (gameMode === "computerVScomputer") {
-    gameBoard.runComputerPlayer();
+  // Function to set up the game based on the game mode
+  function setupGame(board, mode) {
+    addCatsBasedOnGameMode(board, mode);
+
+    if (mode === "computerVScomputer") {
+      board.runComputerPlayer();
+    }
   }
 
   // Function to add cats based on the game mode
@@ -25,8 +33,8 @@ $(document).ready(function () {
     } else if (mode === "onePlayer") {
       board.addCatToBoard("purple", 1);
     } else if (mode === "computerVScomputer") {
-      board.addCatToBoard("orange", 1); // Human player
-      board.addCatToBoard("black", 2); // Computer player
+      board.addCatToBoard("orange", 1);
+      board.addCatToBoard("black", 2);
     }
   }
 });
