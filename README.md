@@ -33,7 +33,7 @@ I created a cat version of the popular game Snakes and Ladders for my assignment
 This game is a play on snakes and ladders but a cat version. Instead of tokens, it would be a cat. Instead of snakes, it would be a water stream because (most) cats hate water and instead of ladders, it would be string because cats love to play with strings.
 
 ## POINT TO MENTION
-This game was built for my assignment, so I didn’t focus too much on responsive design as the main focus is the JavaScript code. Therefore, this game should be played on roughly a 14-inch screen (not full screen). If the screen is bigger/smaller e.g. a bigger monitor or phone then the strings and streams may look out of place and make it harder to understand where they start and end.
+This game was built for my assignment, so I didn’t focus too much on responsive design as the main focus is the JavaScript code. If you make the screen smaller, the strings and streams may be out of place but just refresh your tab and it should be fine.
 
 ## How to play the game
 [How to play snakes and ladders - general rules](https://learnenglishkids.britishcouncil.org/print-make/crafts/snakes-ladders) 
