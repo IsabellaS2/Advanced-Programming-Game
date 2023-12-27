@@ -138,6 +138,8 @@ I identified and resolved another bug where, during the notification display, us
 
 
 ## How to Run the Project
+**If the link takes you to a game page with a board, click the MAIN MENU button to take you to the menu so you can select what type of game mode you want to play** 
+
 * [You can use this link but if it doesn't work follow the steps below](https://isabellas2.github.io/Advanced-Programming-Game/) 
  
 1. In the repository, click on **Settings** Tab at the top
