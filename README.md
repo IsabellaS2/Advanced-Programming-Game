@@ -2,7 +2,32 @@
 
 I created a cat version of the popular game Snakes and Ladders for my assignment using HTML, CSS and mainly JavaScript.
 
-TABLE OF CONTENTS
+## Table of Contents
+# Snakes and Ladders: Cat Edition - Strings & Streams
+
+## Table of Contents
+1. [What is this game?](#what-is-this-game)
+2. [POINT TO MENTION](#point-to-mention)
+3. [How to play the game](#how-to-play-the-game)
+4. [Challenge Outline](#challenge-outline)
+   - [Summary and review of the problem, overall proposed solution](#summary-and-review-of-the-problem-overall-proposed-solution)
+   - [UML Diagrams](#uml-diagrams)
+   - [Initial working plan, overall approach, development strategy and approach to quality](#initial-working-plan-overall-approach-development-strategy-and-approach-to-quality)
+   - [Analysis and decomposition of the overall problem into key ‘epic’ style tasks](#analysis-and-decomposition-of-the-overall-problem-into-key-epic-style-tasks)
+   - [Initial object-oriented design ideas and planned phased breakdown into smaller tasks](#initial-object-oriented-design-ideas-and-planned-phased-breakdown-into-smaller-tasks)
+5. [Development](#development)
+   - [Adoption and use of ‘good’ standards](#adoption-and-use-of-good-standards)
+   - [Ensuring quality through testing and resolving bugs](#ensuring-quality-through-testing-and-resolving-bugs)
+   - [Reflection on key design challenges, innovations and how they were solved (with examples)](#reflection-on-key-design-challenges-innovations-and-how-they-were-solved-with-examples)
+6. [How to Run the Project](#how-to-run-the-project)
+7. [Evaluation](#evaluation)
+   - [Analysis with embedded examples of key code refactoring, reuse, smells](#analysis-with-embedded-examples-of-key-code-refactoring-reuse-smells)
+8. [Implementation and effective use of ‘advanced’ programming principles](#implementation-and-effective-use-of-advanced-programming-principles)
+   - [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
+   - [Features showcase and embedded innovations (with examples)](#features-showcase-and-embedded-innovations-with-examples)
+9. [Reflective review, opportunities to improve and continued professional development](#reflective-review-opportunities-to-improve-and-continued-professional-development)
+10. [Images used](#images-used)
+
 
 ## What is this game?
 This game is a play on snakes and ladders but a cat version. Instead of tokens, it would be a cat. Instead of snakes, it would be a water stream because (most) cats hate water and instead of ladders, it would be string because cats love to play with strings.
