@@ -3,9 +3,6 @@
 I created a cat version of the popular game Snakes and Ladders for my assignment using HTML, CSS and mainly JavaScript.
 
 ## Table of Contents
-# Snakes and Ladders: Cat Edition - Strings & Streams
-
-## Table of Contents
 1. [What is this game?](#what-is-this-game)
 2. [POINT TO MENTION](#point-to-mention)
 3. [How to play the game](#how-to-play-the-game)
