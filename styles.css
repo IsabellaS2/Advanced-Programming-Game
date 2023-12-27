@@ -12,7 +12,6 @@
 body {
   background-color: #fcf5eb;
   font-family: "Bubbler One", sans-serif;
-  
 }
 
 /* Styling for the paragraph text*/
@@ -141,18 +140,13 @@ img {
 a {
   display: flex;
   padding: 10px 20px;
-  background-color: #8d46b0; /* Green background color */
-  color: white; /* White text color */
+  background-color: #8d46b0;
+  color: white;
   text-decoration: none;
   font-size: 18px;
   border-radius: 5px;
-  transition: background-color 0.3s; /* Add a smooth transition on hover */
+  transition: background-color 0.3s;
   width: 100px;
-}
-
-/* Change the button background color on hover */
-a:hover {
-  background-color: #8d46b0;
 }
 
 /*MEDIA QUERIES*/
